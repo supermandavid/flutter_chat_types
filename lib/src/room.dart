@@ -22,6 +22,7 @@ abstract class Room extends Equatable {
     this.lastMessages,
     this.metadata,
     this.name,
+    this.lastMessage,
     required this.type,
     this.updatedAt,
     required this.users,
@@ -34,6 +35,7 @@ abstract class Room extends Equatable {
     List<Message>? lastMessages,
     Map<String, dynamic>? metadata,
     String? name,
+    String? lastMessage,
     required RoomType? type,
     int? updatedAt,
     required List<User> users,
@@ -62,6 +64,8 @@ abstract class Room extends Equatable {
   /// otherwise a custom name [RoomType.group].
   final String? name;
 
+  final String? lastMessage;
+
   /// [RoomType].
   final RoomType? type;
 
@@ -78,6 +82,7 @@ abstract class Room extends Equatable {
         id,
         imageUrl,
         lastMessages,
+        lastMessage,
         metadata,
         name,
         type,
@@ -116,6 +121,7 @@ class _Room extends Room {
     super.lastMessages,
     super.metadata,
     super.name,
+    super.lastMessage,
     required super.type,
     super.updatedAt,
     required super.users,
@@ -127,6 +133,7 @@ class _Room extends Room {
     String? id,
     dynamic imageUrl = _Unset,
     dynamic lastMessages = _Unset,
+    dynamic lastMessage = _Unset,
     dynamic metadata = _Unset,
     dynamic name = _Unset,
     dynamic type = _Unset,
@@ -144,6 +151,7 @@ class _Room extends Room {
             ? this.metadata
             : metadata as Map<String, dynamic>?,
         name: name == _Unset ? this.name : name as String?,
+        lastMessage: lastMessage == _Unset ? this.lastMessage : name as String?,
         type: type == _Unset ? this.type : type as RoomType?,
         updatedAt: updatedAt == _Unset ? this.updatedAt : updatedAt as int?,
         users: users ?? this.users,
