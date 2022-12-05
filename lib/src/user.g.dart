@@ -13,6 +13,8 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       imageUrl: json['imageUrl'] as String?,
       lastName: json['lastName'] as String?,
       lastSeen: json['lastSeen'] as int?,
+      selfie: json['selfie'] as String?,
+      selfieLastUpdated: json['selfieLastUpdated'] as int?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       role: $enumDecodeNullable(_$RoleEnumMap, json['role']),
       updatedAt: json['updatedAt'] as int?,
@@ -33,6 +35,8 @@ Map<String, dynamic> _$UserToJson(User instance) {
   writeNotNull('imageUrl', instance.imageUrl);
   writeNotNull('lastName', instance.lastName);
   writeNotNull('lastSeen', instance.lastSeen);
+  writeNotNull('selfie', instance.selfie);
+  writeNotNull('selfieLastUpdated', instance.selfieLastUpdated);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('role', _$RoleEnumMap[instance.role]);
   writeNotNull('updatedAt', instance.updatedAt);

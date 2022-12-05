@@ -19,6 +19,8 @@ abstract class User extends Equatable {
     this.imageUrl,
     this.lastName,
     this.lastSeen,
+    this.selfie,
+    this.selfieLastUpdated,
     this.metadata,
     this.role,
     this.updatedAt,
@@ -31,6 +33,8 @@ abstract class User extends Equatable {
     String? imageUrl,
     String? lastName,
     int? lastSeen,
+    String? selfie,
+    int? selfieLastUpdated,
     Map<String, dynamic>? metadata,
     Role? role,
     int? updatedAt,
@@ -57,6 +61,12 @@ abstract class User extends Equatable {
   /// Timestamp when user was last visible, in ms.
   final int? lastSeen;
 
+    /// Last name of the user.
+  final String? selfie;
+
+  /// Timestamp when user was last visible, in ms.
+  final int? selfieLastUpdated;
+
   /// Additional custom metadata or attributes related to the user.
   final Map<String, dynamic>? metadata;
 
@@ -75,6 +85,8 @@ abstract class User extends Equatable {
         imageUrl,
         lastName,
         lastSeen,
+        selfie,
+        selfieLastUpdated,
         metadata,
         role,
         updatedAt,
@@ -105,6 +117,8 @@ class _User extends User {
     super.imageUrl,
     super.lastName,
     super.lastSeen,
+    super.selfie,
+    super.selfieLastUpdated,
     super.metadata,
     super.role,
     super.updatedAt,
@@ -118,6 +132,8 @@ class _User extends User {
     dynamic imageUrl = _Unset,
     dynamic lastName = _Unset,
     dynamic lastSeen = _Unset,
+    dynamic selfie = _Unset,
+    dynamic selfieLastUpdated = _Unset,
     dynamic metadata = _Unset,
     dynamic role = _Unset,
     dynamic updatedAt = _Unset,
@@ -129,6 +145,8 @@ class _User extends User {
         imageUrl: imageUrl == _Unset ? this.imageUrl : imageUrl as String?,
         lastName: lastName == _Unset ? this.lastName : lastName as String?,
         lastSeen: lastSeen == _Unset ? this.lastSeen : lastSeen as int?,
+        selfie: selfie == _Unset ? this.selfie : selfie as String?,
+        selfieLastUpdated: selfieLastUpdated == _Unset ? this.selfieLastUpdated : selfieLastUpdated as int?,
         metadata: metadata == _Unset
             ? this.metadata
             : metadata as Map<String, dynamic>?,
