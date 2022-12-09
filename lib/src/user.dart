@@ -18,6 +18,7 @@ abstract class User extends Equatable {
     required this.id,
     this.imageUrl,
     this.lastName,
+    this.mark,
     this.lastSeen,
     this.selfie,
     this.selfieLastUpdated,
@@ -32,6 +33,7 @@ abstract class User extends Equatable {
     required String id,
     String? imageUrl,
     String? lastName,
+    String? mark,
     int? lastSeen,
     String? selfie,
     int? selfieLastUpdated,
@@ -57,6 +59,9 @@ abstract class User extends Equatable {
 
   /// Last name of the user.
   final String? lastName;
+
+  /// mark of the user.
+  final String? mark;
 
   /// Timestamp when user was last visible, in ms.
   final int? lastSeen;
@@ -84,6 +89,7 @@ abstract class User extends Equatable {
         id,
         imageUrl,
         lastName,
+        mark,
         lastSeen,
         selfie,
         selfieLastUpdated,
@@ -98,6 +104,7 @@ abstract class User extends Equatable {
     String? id,
     String? imageUrl,
     String? lastName,
+    String? mark,
     int? lastSeen,
     Map<String, dynamic>? metadata,
     Role? role,
@@ -116,6 +123,7 @@ class _User extends User {
     required super.id,
     super.imageUrl,
     super.lastName,
+    super.mark,
     super.lastSeen,
     super.selfie,
     super.selfieLastUpdated,
@@ -131,6 +139,7 @@ class _User extends User {
     String? id,
     dynamic imageUrl = _Unset,
     dynamic lastName = _Unset,
+    dynamic mark = _Unset,
     dynamic lastSeen = _Unset,
     dynamic selfie = _Unset,
     dynamic selfieLastUpdated = _Unset,
@@ -144,6 +153,7 @@ class _User extends User {
         id: id ?? this.id,
         imageUrl: imageUrl == _Unset ? this.imageUrl : imageUrl as String?,
         lastName: lastName == _Unset ? this.lastName : lastName as String?,
+        mark: mark == _Unset ? this.mark : mark as String?,
         lastSeen: lastSeen == _Unset ? this.lastSeen : lastSeen as int?,
         selfie: selfie == _Unset ? this.selfie : selfie as String?,
         selfieLastUpdated: selfieLastUpdated == _Unset ? this.selfieLastUpdated : selfieLastUpdated as int?,
