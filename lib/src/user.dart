@@ -33,7 +33,7 @@ abstract class User extends Equatable {
     required String id,
     String? imageUrl,
     String? lastName,
-    String? mark,
+    int? mark,
     int? lastSeen,
     String? selfie,
     int? selfieLastUpdated,
@@ -61,7 +61,7 @@ abstract class User extends Equatable {
   final String? lastName;
 
   /// mark of the user.
-  final String? mark;
+  final int? mark;
 
   /// Timestamp when user was last visible, in ms.
   final int? lastSeen;
@@ -153,7 +153,7 @@ class _User extends User {
         id: id ?? this.id,
         imageUrl: imageUrl == _Unset ? this.imageUrl : imageUrl as String?,
         lastName: lastName == _Unset ? this.lastName : lastName as String?,
-        mark: mark == _Unset ? this.mark : mark as String?,
+        mark: mark == _Unset ? this.mark : mark as int?,
         lastSeen: lastSeen == _Unset ? this.lastSeen : lastSeen as int?,
         selfie: selfie == _Unset ? this.selfie : selfie as String?,
         selfieLastUpdated: selfieLastUpdated == _Unset ? this.selfieLastUpdated : selfieLastUpdated as int?,
