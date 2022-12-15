@@ -18,6 +18,7 @@ abstract class User extends Equatable {
     required this.id,
     this.imageUrl,
     this.lastName,
+    this.messagingToken,
     this.mark,
     this.lastSeen,
     this.selfie,
@@ -33,6 +34,7 @@ abstract class User extends Equatable {
     required String id,
     String? imageUrl,
     String? lastName,
+    String? messagingToken,
     int? mark,
     int? lastSeen,
     String? selfie,
@@ -59,6 +61,9 @@ abstract class User extends Equatable {
 
   /// Last name of the user.
   final String? lastName;
+
+  /// FCMToken of the user.
+  final String? messagingToken;
 
   /// mark of the user.
   final int? mark;
@@ -89,6 +94,7 @@ abstract class User extends Equatable {
         id,
         imageUrl,
         lastName,
+        messagingToken,
         mark,
         lastSeen,
         selfie,
@@ -104,6 +110,7 @@ abstract class User extends Equatable {
     String? id,
     String? imageUrl,
     String? lastName,
+    String? messagingToken,
     String? mark,
     int? lastSeen,
     Map<String, dynamic>? metadata,
@@ -123,6 +130,7 @@ class _User extends User {
     required super.id,
     super.imageUrl,
     super.lastName,
+    super.messagingToken,
     super.mark,
     super.lastSeen,
     super.selfie,
@@ -139,6 +147,7 @@ class _User extends User {
     String? id,
     dynamic imageUrl = _Unset,
     dynamic lastName = _Unset,
+    dynamic messagingToken = _Unset,
     dynamic mark = _Unset,
     dynamic lastSeen = _Unset,
     dynamic selfie = _Unset,
@@ -153,6 +162,7 @@ class _User extends User {
         id: id ?? this.id,
         imageUrl: imageUrl == _Unset ? this.imageUrl : imageUrl as String?,
         lastName: lastName == _Unset ? this.lastName : lastName as String?,
+        messagingToken: messagingToken == _Unset ? this.messagingToken : messagingToken as String?,
         mark: mark == _Unset ? this.mark : mark as int?,
         lastSeen: lastSeen == _Unset ? this.lastSeen : lastSeen as int?,
         selfie: selfie == _Unset ? this.selfie : selfie as String?,
