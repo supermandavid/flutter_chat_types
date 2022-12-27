@@ -21,6 +21,7 @@ abstract class Room extends Equatable {
     this.imageUrl,
     this.lastMessages,
     this.metadata,
+    this.seenLog,
     this.name,
     this.lastMessage,
     required this.type,
@@ -34,6 +35,7 @@ abstract class Room extends Equatable {
     String? imageUrl,
     List<Message>? lastMessages,
     Map<String, dynamic>? metadata,
+    Map<String, dynamic>? seenLog,
     String? name,
     String? lastMessage,
     required RoomType? type,
@@ -60,6 +62,9 @@ abstract class Room extends Equatable {
   /// Additional custom metadata or attributes related to the room.
   final Map<String, dynamic>? metadata;
 
+  /// map of users and count of messages they are yet to open.
+  final Map<String, dynamic>? seenLog;
+
   /// Room's name. In case of the [RoomType.direct] - name of the second person,
   /// otherwise a custom name [RoomType.group].
   final String? name;
@@ -84,6 +89,7 @@ abstract class Room extends Equatable {
         lastMessages,
         lastMessage,
         metadata,
+        seenLog,
         name,
         type,
         updatedAt,
@@ -102,6 +108,7 @@ abstract class Room extends Equatable {
     String? imageUrl,
     List<Message>? lastMessages,
     Map<String, dynamic>? metadata,
+    Map<String, dynamic>? seenLog,
     String? name,
     RoomType? type,
     int? updatedAt,
@@ -120,6 +127,7 @@ class _Room extends Room {
     super.imageUrl,
     super.lastMessages,
     super.metadata,
+    super.seenLog,
     super.name,
     super.lastMessage,
     required super.type,
@@ -135,6 +143,7 @@ class _Room extends Room {
     dynamic lastMessages = _Unset,
     dynamic lastMessage = _Unset,
     dynamic metadata = _Unset,
+    dynamic seenLog = _Unset,
     dynamic name = _Unset,
     dynamic type = _Unset,
     dynamic updatedAt = _Unset,
@@ -150,6 +159,9 @@ class _Room extends Room {
         metadata: metadata == _Unset
             ? this.metadata
             : metadata as Map<String, dynamic>?,
+        seenLog: seenLog == _Unset
+            ? this.seenLog
+            : seenLog as Map<String, dynamic>?,
         name: name == _Unset ? this.name : name as String?,
         lastMessage: lastMessage == _Unset ? this.lastMessage : name as String?,
         type: type == _Unset ? this.type : type as RoomType?,
