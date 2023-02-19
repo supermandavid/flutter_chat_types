@@ -24,6 +24,7 @@ abstract class Room extends Equatable {
     this.seenLog,
     this.name,
     this.lastMessage,
+    this.lastMessageId,
     required this.type,
     this.updatedAt,
     required this.users,
@@ -38,6 +39,7 @@ abstract class Room extends Equatable {
     Map<String, dynamic>? seenLog,
     String? name,
     String? lastMessage,
+    String? lastMessageId,
     required RoomType? type,
     int? updatedAt,
     required List<User> users,
@@ -70,6 +72,7 @@ abstract class Room extends Equatable {
   final String? name;
 
   final String? lastMessage;
+  final String? lastMessageId;
 
   /// [RoomType].
   final RoomType? type;
@@ -88,6 +91,7 @@ abstract class Room extends Equatable {
         imageUrl,
         lastMessages,
         lastMessage,
+        lastMessageId,
         metadata,
         seenLog,
         name,
@@ -110,6 +114,8 @@ abstract class Room extends Equatable {
     Map<String, dynamic>? metadata,
     Map<String, dynamic>? seenLog,
     String? name,
+    String? lastMessage,
+    String? lastMessageId,
     RoomType? type,
     int? updatedAt,
     List<User>? users,
@@ -130,6 +136,7 @@ class _Room extends Room {
     super.seenLog,
     super.name,
     super.lastMessage,
+    super.lastMessageId,
     required super.type,
     super.updatedAt,
     required super.users,
@@ -142,6 +149,7 @@ class _Room extends Room {
     dynamic imageUrl = _Unset,
     dynamic lastMessages = _Unset,
     dynamic lastMessage = _Unset,
+    dynamic lastMessageId = _Unset,
     dynamic metadata = _Unset,
     dynamic seenLog = _Unset,
     dynamic name = _Unset,
@@ -164,6 +172,7 @@ class _Room extends Room {
             : seenLog as Map<String, dynamic>?,
         name: name == _Unset ? this.name : name as String?,
         lastMessage: lastMessage == _Unset ? this.lastMessage : name as String?,
+        lastMessageId: lastMessageId == _Unset ? this.lastMessageId : name as String?,
         type: type == _Unset ? this.type : type as RoomType?,
         updatedAt: updatedAt == _Unset ? this.updatedAt : updatedAt as int?,
         users: users ?? this.users,

@@ -14,6 +14,7 @@ Room _$RoomFromJson(Map<String, dynamic> json) => Room(
           ?.map((e) => Message.fromJson(e as Map<String, dynamic>))
           .toList(),
       lastMessage: json['lastMessage'] as String?,
+      lastMessageId: json['lastMessageId'] as String?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       seenLog: json['seenLog'] as Map<String, dynamic>?,
       name: json['name'] as String?,
@@ -42,6 +43,7 @@ Map<String, dynamic> _$RoomToJson(Room instance) {
   writeNotNull('seenLog', instance.seenLog);
   writeNotNull('name', instance.name);
   writeNotNull('lastMessage', instance.lastMessage);
+  writeNotNull('lastMessageId', instance.lastMessageId);
   writeNotNull('type', _$RoomTypeEnumMap[instance.type]);
   writeNotNull('updatedAt', instance.updatedAt);
   val['users'] = instance.users.map((e) => e.toJson()).toList();
