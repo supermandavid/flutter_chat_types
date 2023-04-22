@@ -8,6 +8,7 @@ part of 'room.dart';
 
 Room _$RoomFromJson(Map<String, dynamic> json) => Room(
       createdAt: json['createdAt'] as int?,
+      inquiries: json['inquiries'] as List<Map>?,
       id: json['id'] as String,
       imageUrl: json['imageUrl'] as String?,
       lastMessages: (json['lastMessages'] as List<dynamic>?)
@@ -20,6 +21,8 @@ Room _$RoomFromJson(Map<String, dynamic> json) => Room(
       name: json['name'] as String?,
       type: $enumDecodeNullable(_$RoomTypeEnumMap, json['type']),
       updatedAt: json['updatedAt'] as int?,
+      organisers: json['organisers'] as List<String>?,
+      userMarks: json['userMarks'] as List<String>?,
       users: (json['users'] as List<dynamic>)
           .map((e) => User.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -35,6 +38,7 @@ Map<String, dynamic> _$RoomToJson(Room instance) {
   }
 
   writeNotNull('createdAt', instance.createdAt);
+  writeNotNull('inquiries', instance.inquiries);
   val['id'] = instance.id;
   writeNotNull('imageUrl', instance.imageUrl);
   writeNotNull(
@@ -46,6 +50,8 @@ Map<String, dynamic> _$RoomToJson(Room instance) {
   writeNotNull('lastMessageId', instance.lastMessageId);
   writeNotNull('type', _$RoomTypeEnumMap[instance.type]);
   writeNotNull('updatedAt', instance.updatedAt);
+  writeNotNull('organisers', instance.organisers);
+  writeNotNull('userMarks', instance.organisers);
   val['users'] = instance.users.map((e) => e.toJson()).toList();
   return val;
 }

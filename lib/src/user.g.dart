@@ -12,11 +12,12 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       id: json['id'] as String,
       imageUrl: json['imageUrl'] as String?,
       lastName: json['lastName'] as String?,
-      messagingToken: json['messagingToken'] as String?,
+      messagingTokens: json['messagingTokens'] as List<String>?,
+      managerMessagingTokens: json['managerMessagingTokens'] as List<String>?,
       mark: json['mark'] as int?,
       lastSeen: json['lastSeen'] as int?,
-      selfie: json['selfie'] as String?,
-      selfieLastUpdated: json['selfieLastUpdated'] as int?,
+      profilePhoto: json['profilePhoto'] as String?,
+      profilePhotoLastUpdated: json['profilePhotoLastUpdated'] as int?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       role: $enumDecodeNullable(_$RoleEnumMap, json['role']),
       updatedAt: json['updatedAt'] as int?,
@@ -36,11 +37,12 @@ Map<String, dynamic> _$UserToJson(User instance) {
   val['id'] = instance.id;
   writeNotNull('imageUrl', instance.imageUrl);
   writeNotNull('lastName', instance.lastName);
-  writeNotNull('messagingToken', instance.messagingToken);
+  writeNotNull('messagingTokens', instance.messagingTokens);
+  writeNotNull('managerMessagingTokens', instance.managerMessagingTokens);
   writeNotNull('mark', instance.mark);
   writeNotNull('lastSeen', instance.lastSeen);
-  writeNotNull('selfie', instance.selfie);
-  writeNotNull('selfieLastUpdated', instance.selfieLastUpdated);
+  writeNotNull('profilePhoto', instance.profilePhoto);
+  writeNotNull('profilePhotoLastUpdated', instance.profilePhotoLastUpdated);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('role', _$RoleEnumMap[instance.role]);
   writeNotNull('updatedAt', instance.updatedAt);

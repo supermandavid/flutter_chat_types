@@ -21,8 +21,8 @@ abstract class User extends Equatable {
     this.messagingToken,
     this.mark,
     this.lastSeen,
-    this.selfie,
-    this.selfieLastUpdated,
+    this.profilePhoto,
+    this.profilePhotoLastUpdated,
     this.metadata,
     this.role,
     this.updatedAt,
@@ -34,11 +34,12 @@ abstract class User extends Equatable {
     required String id,
     String? imageUrl,
     String? lastName,
-    String? messagingToken,
+    List<String>? messagingTokens,
+    List<String>? managerMessagingTokens,
     int? mark,
     int? lastSeen,
-    String? selfie,
-    int? selfieLastUpdated,
+    String? profilePhoto,
+    int? profilePhotoLastUpdated,
     Map<String, dynamic>? metadata,
     Role? role,
     int? updatedAt,
@@ -62,8 +63,11 @@ abstract class User extends Equatable {
   /// Last name of the user.
   final String? lastName;
 
-  /// FCMToken of the user.
-  final String? messagingToken;
+  /// FCMTokens of the user for ticket app.
+  final List<String>? messagingToken;
+
+  /// FCMTokens of the user for manager app.
+  final List<String>? managerMessagingTokens;
 
   /// mark of the user.
   final int? mark;
@@ -72,10 +76,10 @@ abstract class User extends Equatable {
   final int? lastSeen;
 
     /// Last name of the user.
-  final String? selfie;
+  final String? profilePhoto;
 
   /// Timestamp when user was last visible, in ms.
-  final int? selfieLastUpdated;
+  final int? profilePhotoLastUpdated;
 
   /// Additional custom metadata or attributes related to the user.
   final Map<String, dynamic>? metadata;
@@ -94,11 +98,12 @@ abstract class User extends Equatable {
         id,
         imageUrl,
         lastName,
-        messagingToken,
+        messagingTokens,
+        managerMessagingTokens,
         mark,
         lastSeen,
-        selfie,
-        selfieLastUpdated,
+        profilePhoto,
+        profilePhotoLastUpdated,
         metadata,
         role,
         updatedAt,
@@ -110,7 +115,8 @@ abstract class User extends Equatable {
     String? id,
     String? imageUrl,
     String? lastName,
-    String? messagingToken,
+    List<String>? messagingTokens,
+    List<String>? managerMessagingToken,
     String? mark,
     int? lastSeen,
     Map<String, dynamic>? metadata,
@@ -130,11 +136,12 @@ class _User extends User {
     required super.id,
     super.imageUrl,
     super.lastName,
-    super.messagingToken,
+    super.messagingTokens,
+    super.managerMessagingTokens
     super.mark,
     super.lastSeen,
-    super.selfie,
-    super.selfieLastUpdated,
+    super.profilePhoto,
+    super.profilePhotoLastUpdated,
     super.metadata,
     super.role,
     super.updatedAt,
@@ -147,11 +154,12 @@ class _User extends User {
     String? id,
     dynamic imageUrl = _Unset,
     dynamic lastName = _Unset,
-    dynamic messagingToken = _Unset,
+    dynamic messagingTokens = _Unset,
+    dynamic managerMessagingTokens = _Unset,
     dynamic mark = _Unset,
     dynamic lastSeen = _Unset,
-    dynamic selfie = _Unset,
-    dynamic selfieLastUpdated = _Unset,
+    dynamic profilePhoto = _Unset,
+    dynamic profilePhotoLastUpdated = _Unset,
     dynamic metadata = _Unset,
     dynamic role = _Unset,
     dynamic updatedAt = _Unset,
@@ -162,11 +170,12 @@ class _User extends User {
         id: id ?? this.id,
         imageUrl: imageUrl == _Unset ? this.imageUrl : imageUrl as String?,
         lastName: lastName == _Unset ? this.lastName : lastName as String?,
-        messagingToken: messagingToken == _Unset ? this.messagingToken : messagingToken as String?,
+        messagingTokens: messagingTokens == _Unset ? this.messagingTokens : messagingTokens as List<String>?,
+        managerMessagingTokens: managerMessagingTokens == _Unset ? this.managerMessagingTokens : managerMessagingTokens as List<String>?,
         mark: mark == _Unset ? this.mark : mark as int?,
         lastSeen: lastSeen == _Unset ? this.lastSeen : lastSeen as int?,
-        selfie: selfie == _Unset ? this.selfie : selfie as String?,
-        selfieLastUpdated: selfieLastUpdated == _Unset ? this.selfieLastUpdated : selfieLastUpdated as int?,
+        profilePhoto: profilePhoto == _Unset ? this.profilePhoto : profilePhoto as String?,
+        profilePhotoLastUpdated: profilePhotoLastUpdated == _Unset ? this.profilePhotoLastUpdated : profilePhotoLastUpdated as int?,
         metadata: metadata == _Unset
             ? this.metadata
             : metadata as Map<String, dynamic>?,
