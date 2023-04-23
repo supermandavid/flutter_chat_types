@@ -17,38 +17,32 @@ abstract class Room extends Equatable {
   /// Creates a [Room].
   const Room._({
     this.createdAt,
-    this.inquiries,
     required this.id,
     this.imageUrl,
     this.lastMessages,
     this.metadata,
     this.seenLog,
-    this.mark,
     this.name,
     this.lastMessage,
     this.lastMessageId,
     required this.type,
     this.updatedAt,
     required this.users,
-    required this.organisers,
   });
 
   const factory Room({
     int? createdAt,
-    List<Map>? inquiries,
     required String id,
     String? imageUrl,
     List<Message>? lastMessages,
     Map<String, dynamic>? metadata,
     Map<String, dynamic>? seenLog,
-    String? mark,
     String? name,
     String? lastMessage,
     String? lastMessageId,
     required RoomType? type,
     int? updatedAt,
     required List<User> users,
-    required List<String> organisers,
   }) = _Room;
 
   /// Creates room from a map (decoded JSON).
@@ -56,9 +50,6 @@ abstract class Room extends Equatable {
 
   /// Created room timestamp, in ms.
   final int? createdAt;
-
-  /// inquiry data.
-  final List<Map>? inquiries;
 
   /// Room's unique ID.
   final String id;
@@ -76,9 +67,7 @@ abstract class Room extends Equatable {
   /// map of users and count of messages they are yet to open.
   final Map<String, dynamic>? seenLog;
 
-  /// mark used to identify chat
-  final String? mark;
-
+  /// Room's name. In case of the [RoomType.direct] - name of the second person,
   /// otherwise a custom name [RoomType.group].
   final String? name;
 
@@ -93,15 +82,11 @@ abstract class Room extends Equatable {
 
   /// List of users which are in the room.
   final List<User> users;
-  
-  /// List of organisers which are in the room.
-  final List<User> organisers;
 
   /// Equatable props.
   @override
   List<Object?> get props => [
         createdAt,
-        inquiries,
         id,
         imageUrl,
         lastMessages,
@@ -109,12 +94,10 @@ abstract class Room extends Equatable {
         lastMessageId,
         metadata,
         seenLog,
-        mark,
         name,
         type,
         updatedAt,
         users,
-        organisers,
       ];
 
   /// Creates a copy of the room with an updated data.
@@ -125,21 +108,17 @@ abstract class Room extends Equatable {
   /// [type] and [users] with null values will be overwritten by previous values.
   Room copyWith({
     int? createdAt,
-    List<Map>? inquiries,
     String? id,
     String? imageUrl,
     List<Message>? lastMessages,
     Map<String, dynamic>? metadata,
     Map<String, dynamic>? seenLog,
-    String? mark,
     String? name,
     String? lastMessage,
     String? lastMessageId,
     RoomType? type,
     int? updatedAt,
     List<User>? users,
-    List<String>? userMarks,
-    List<String>? organisers,
   });
 
   /// Converts room to the map representation, encodable to JSON.
@@ -150,27 +129,22 @@ abstract class Room extends Equatable {
 class _Room extends Room {
   const _Room({
     super.createdAt,
-    super.inquiries,
     required super.id,
     super.imageUrl,
     super.lastMessages,
     super.metadata,
     super.seenLog,
-    super.mark,
     super.name,
     super.lastMessage,
     super.lastMessageId,
     required super.type,
     super.updatedAt,
     required super.users,
-    required super.userMarks,
-    required super.organisers,
   }) : super._();
 
   @override
   Room copyWith({
     dynamic createdAt = _Unset,
-    dynamic inquiries = _Unset,
     String? id,
     dynamic imageUrl = _Unset,
     dynamic lastMessages = _Unset,
@@ -178,35 +152,30 @@ class _Room extends Room {
     dynamic lastMessageId = _Unset,
     dynamic metadata = _Unset,
     dynamic seenLog = _Unset,
-    dynamic mark = _Unset,
     dynamic name = _Unset,
     dynamic type = _Unset,
     dynamic updatedAt = _Unset,
     List<User>? users,
-    List<String>? userMarks,
-    List<String>? organisers,
   }) =>
       _Room(
         createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
-        inquiries: inquiries == _Unset ? this.inquiries : inquiries as List<Map>?,
         id: id ?? this.id,
         imageUrl: imageUrl == _Unset ? this.imageUrl : imageUrl as String?,
         lastMessages: lastMessages == _Unset
             ? this.lastMessages
             : lastMessages as List<Message>?,
-        metadata: metadata == _Unset ? this.metadata : metadata as Map<String, dynamic>?,
+        metadata: metadata == _Unset
+            ? this.metadata
+            : metadata as Map<String, dynamic>?,
         seenLog: seenLog == _Unset
             ? this.seenLog
             : seenLog as Map<String, dynamic>?,
-        mark: nark == _Unset ? this.mark : mark as String?,
         name: name == _Unset ? this.name : name as String?,
-        lastMessage: lastMessage == _Unset ? this.lastMessage : lastMessage as String?,
-        lastMessageId: lastMessageId == _Unset ? this.lastMessageId : lastMessageId as String?,
+        lastMessage: lastMessage == _Unset ? this.lastMessage : name as String?,
+        lastMessageId: lastMessageId == _Unset ? this.lastMessageId : name as String?,
         type: type == _Unset ? this.type : type as RoomType?,
         updatedAt: updatedAt == _Unset ? this.updatedAt : updatedAt as int?,
         users: users ?? this.users,
-        users: users ?? this.userMarks,
-        users: users ?? this.organisers,
       );
 }
 
